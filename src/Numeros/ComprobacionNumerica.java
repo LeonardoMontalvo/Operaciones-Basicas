@@ -1,5 +1,5 @@
-
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 /*
@@ -99,7 +99,7 @@ public class ComprobacionNumerica extends javax.swing.JFrame {
     private void btnComprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprobarActionPerformed
 
     int num = Integer.parseInt(txtNumero.getText());
-    
+     if (num >= 1 && num <= 500) {
     int Divisores = 0;
     for (int n = 1; n < num; n++) {
         if (num % n == 0) {
@@ -133,14 +133,19 @@ public class ComprobacionNumerica extends javax.swing.JFrame {
             sumaPrimos = sumaPrimos+ primo;
         }
      txt4.setText ("La sumatoria de los numeros primos menores es de: " + sumaPrimos);
-    double raizPrimos = 1.0 ;     //se multiplicará por las raíces cuadradas de los números primos
-  
-    for (int n = 0; n < primosM.size(); n++) {
-    raizPrimos = raizPrimos * Math.sqrt(primosM.get(n));      //Math.sqrt es una función que calcula la raíz cuadrada de un número
-     txt5.setText ("La raiz de la sumatoria de los numeros primos menores es de: " + raizPrimos);
-    
+   
+    double raizPrimos = Math.sqrt(sumaPrimos);  //Math.sqrt es una función que calcula la raíz cuadrada de un número
+    txt5.setText("La raiz de la sumatoria de los numeros primos menores es de: " + raizPrimos);
+
+     } else{
+         JOptionPane.showMessageDialog(rootPane, "Ingrese un numero entre el 1 y el 500");   
+           
+        }
     }//GEN-LAST:event_btnComprobarActionPerformed
-}
+
+    
+    
+    
     public boolean Primo(int numP) {
     if (numP <= 1) {
         return false;
